@@ -1,0 +1,10 @@
+Library/
+Temp/
+Obj/
+Build/
+Builds/
+Logs/
+UserSettings/
+
+# Package Cache
+Library/PackageCache/
