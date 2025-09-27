@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 646825759000423716}
   - component: {fileID: 122019294667566032}
   - component: {fileID: 3259866370250450047}
+  - component: {fileID: 3746410878885470728}
   m_Layer: 9
   m_Name: Renard_test
   m_TagString: Untagged
@@ -131,6 +132,36 @@ MonoBehaviour:
   vitesseActuelle: 0
   rayonDetectionProie: 10
   tempsAttaque: 3
+  seuilReproduction: 120
+  cooldownReproduction: 15
   layerProie:
     serializedVersion: 2
     m_Bits: 256
+  prefabRenard: {fileID: 6969874896333843480}
+--- !u!54 &3746410878885470728
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6969874896333843480}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 5
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
