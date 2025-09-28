@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3746410878885470728}
   m_Layer: 9
   m_Name: Renard_test
-  m_TagString: Untagged
+  m_TagString: Renard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
