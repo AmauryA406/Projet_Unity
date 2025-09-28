@@ -15,8 +15,8 @@ namespace EcosystemSimulation
         [Header("Stats Renard")]
         [SerializeField] private float rayonDetectionProie = 10f;
         [SerializeField] private float tempsAttaque = 3f;
-        [SerializeField] private float seuilReproduction = 120f;
-        [SerializeField] private float cooldownReproduction = 15f;
+        [SerializeField] private float seuilReproduction = 130f;
+        [SerializeField] private float cooldownReproduction = 20f;
         [SerializeField] private LayerMask layerProie;
         [SerializeField] private GameObject prefabRenard;
 
@@ -24,6 +24,7 @@ namespace EcosystemSimulation
         private Transform cibleActuelle;
         private bool enAttaque = false;
         private bool peutSeReproduire = true;
+        private Rigidbody rb;
 
         protected override void Start()
         {
@@ -31,6 +32,7 @@ namespace EcosystemSimulation
             vitesseBase = 4f;
             perteEnergieParSeconde = 0.5f;
 
+            rb = GetComponent<Rigidbody>();
             base.Start();
         }
 
@@ -49,7 +51,10 @@ namespace EcosystemSimulation
         {
             if (energieActuelle >= seuilReproduction && peutSeReproduire && prefabRenard != null)
             {
-                StartCoroutine(SeReproduire());
+                if (EcosystemManager.PeutSeReproduire("Renard", 4))
+                {
+                    StartCoroutine(SeReproduire());
+                }
             }
         }
 
@@ -57,11 +62,9 @@ namespace EcosystemSimulation
         {
             peutSeReproduire = false;
 
-            // Créer un nouveau renard à proximité
             Vector3 positionBebe = transform.position + EcosystemManager.GenererPositionAleatoire(2f, 5f);
             EcosystemManager.CreerAnimal(prefabRenard, positionBebe);
 
-            // Coût énergétique important
             energieActuelle -= 60f;
 
             yield return new WaitForSeconds(cooldownReproduction);
@@ -89,7 +92,6 @@ namespace EcosystemSimulation
 
             if (proies.Length > 0)
             {
-                // Chercher la proie la plus proche
                 Transform procheCible = null;
                 float distanceMin = float.MaxValue;
 
@@ -117,16 +119,17 @@ namespace EcosystemSimulation
             }
 
             Vector3 direction = (cibleActuelle.position - transform.position).normalized;
-            transform.position += direction * vitesseActuelle * Time.deltaTime;
 
-            // Vérifier si on a attrapé la proie
+            Vector3 mouvement = direction * vitesseActuelle;
+            mouvement.y = rb.linearVelocity.y;
+            rb.linearVelocity = mouvement;
+
             float distance = Vector3.Distance(transform.position, cibleActuelle.position);
             if (distance < 1f)
             {
                 StartCoroutine(AttaquerProie());
             }
 
-            // Abandon si la proie est trop loin
             if (distance > rayonDetectionProie * 1.5f)
             {
                 cibleActuelle = null;
@@ -137,7 +140,10 @@ namespace EcosystemSimulation
         private void MouvementAleatoire()
         {
             Vector3 direction = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f)).normalized;
-            transform.position += direction * (vitesseActuelle * 0.5f) * Time.deltaTime;
+
+            Vector3 mouvement = direction * (vitesseActuelle * 0.5f);
+            mouvement.y = rb.linearVelocity.y;
+            rb.linearVelocity = mouvement;
         }
 
         private IEnumerator AttaquerProie()
@@ -149,16 +155,14 @@ namespace EcosystemSimulation
 
             yield return new WaitForSeconds(tempsAttaque);
 
-            // Manger la proie
             if (proie != null)
             {
-                energieActuelle += 70f; // Plus d'énergie qu'avant
+                energieActuelle += 70f;
                 if (energieActuelle > energieMax) energieActuelle = energieMax;
 
                 Destroy(proie);
             }
 
-            // Retour à la patrouille
             enAttaque = false;
             cibleActuelle = null;
             etatActuel = EtatRenard.Patrouille;

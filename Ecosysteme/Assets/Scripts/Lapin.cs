@@ -8,8 +8,8 @@ namespace EcosystemSimulation
         [Header("Stats Lapin")]
         [SerializeField] private float rayonDetectionPredateur = 8f;
         [SerializeField] private float rayonDetectionHerbe = 5f;
-        [SerializeField] private float seuilReproduction = 80f;
-        [SerializeField] private float cooldownReproduction = 10f;
+        [SerializeField] private float seuilReproduction = 90f;
+        [SerializeField] private float cooldownReproduction = 15f;
         [SerializeField] private LayerMask layerPredateur;
         [SerializeField] private LayerMask layerHerbe;
         [SerializeField] private GameObject prefabLapin;
@@ -18,6 +18,7 @@ namespace EcosystemSimulation
         private bool peutSeReproduire = true;
         private Vector3 directionFuite;
         private Transform herbeTarget;
+        private Rigidbody rb;
 
         protected override void Start()
         {
@@ -25,6 +26,7 @@ namespace EcosystemSimulation
             vitesseBase = 6f;
             perteEnergieParSeconde = 2f;
 
+            rb = GetComponent<Rigidbody>();
             base.Start();
         }
 
@@ -50,7 +52,7 @@ namespace EcosystemSimulation
                 Vector3 directionDanger = predateurs[0].transform.position - transform.position;
                 directionFuite = -directionDanger.normalized;
                 enFuite = true;
-                herbeTarget = null; // Abandonner la recherche d'herbe
+                herbeTarget = null;
             }
             else
             {
@@ -60,13 +62,12 @@ namespace EcosystemSimulation
 
         private void ChercherHerbe()
         {
-            if (herbeTarget != null) return; // Déjà une cible
+            if (herbeTarget != null) return;
 
             Collider[] herbes = Physics.OverlapSphere(transform.position, rayonDetectionHerbe, layerHerbe);
 
             if (herbes.Length > 0)
             {
-                // Trouver l'herbe la plus proche qui peut être mangée
                 foreach (Collider herbeCollider in herbes)
                 {
                     Herbe herbe = herbeCollider.GetComponent<Herbe>();
@@ -83,7 +84,10 @@ namespace EcosystemSimulation
         {
             if (energieActuelle >= seuilReproduction && peutSeReproduire && prefabLapin != null)
             {
-                StartCoroutine(SeReproduire());
+                if (EcosystemManager.PeutSeReproduire("Lapin", 15))
+                {
+                    StartCoroutine(SeReproduire());
+                }
             }
         }
 
@@ -91,11 +95,9 @@ namespace EcosystemSimulation
         {
             peutSeReproduire = false;
 
-            // Créer un nouveau lapin à proximité
             Vector3 positionBebe = transform.position + EcosystemManager.GenererPositionAleatoire(1f, 3f);
             EcosystemManager.CreerAnimal(prefabLapin, positionBebe);
 
-            // Coût énergétique
             energieActuelle -= 40f;
 
             yield return new WaitForSeconds(cooldownReproduction);
@@ -112,10 +114,8 @@ namespace EcosystemSimulation
             }
             else if (herbeTarget != null)
             {
-                // Aller vers l'herbe
                 direction = (herbeTarget.position - transform.position).normalized;
 
-                // Vérifier si on a atteint l'herbe
                 if (Vector3.Distance(transform.position, herbeTarget.position) < 1f)
                 {
                     Herbe herbe = herbeTarget.GetComponent<Herbe>();
@@ -130,11 +130,12 @@ namespace EcosystemSimulation
             }
             else
             {
-                // Mouvement aléatoire
                 direction = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f)).normalized;
             }
 
-            transform.position += direction * vitesseActuelle * Time.deltaTime;
+            Vector3 mouvement = direction * vitesseActuelle;
+            mouvement.y = rb.linearVelocity.y;
+            rb.linearVelocity = mouvement;
         }
 
         private void OnDrawGizmosSelected()
