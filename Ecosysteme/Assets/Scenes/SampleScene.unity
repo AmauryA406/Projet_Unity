@@ -466,17 +466,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c33f2d0e128adf74fbf0e86e668bf4ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EcosystemSimulation.ZoneConfinement
-  centreZone: {x: 0, y: 0, z: 0}
-  rayonZone: 25
-  hauteurMax: 20
-  hauteurMin: -5
-  teleportationInstantanee: 0
-  attractionDouce: 1
-  forceAttraction: 5
-  intervalleVerification: 0.5
-  tagsAnimaux:
-  - Lapin
-  - Renard
 --- !u!4 &508889184
 Transform:
   m_ObjectHideFlags: 0
@@ -544,7 +533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EcosystemSimulation.BarriereInvisible
   repousserAnimaux: 1
-  forceRepulsion: 10
+  forceRepulsion: 50
   teleporterAnimaux: 0
   centreZone: {fileID: 1530626014}
   afficherGizmos: 1
@@ -667,7 +656,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EcosystemSimulation.BarriereInvisible
   repousserAnimaux: 1
-  forceRepulsion: 10
+  forceRepulsion: 50
   teleporterAnimaux: 0
   centreZone: {fileID: 1530626014}
   afficherGizmos: 1
@@ -741,7 +730,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EcosystemSimulation.BarriereInvisible
   repousserAnimaux: 1
-  forceRepulsion: 10
+  forceRepulsion: 50
   teleporterAnimaux: 0
   centreZone: {fileID: 1530626014}
   afficherGizmos: 1
@@ -794,7 +783,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EcosystemSimulation.BarriereInvisible
   repousserAnimaux: 1
-  forceRepulsion: 10
+  forceRepulsion: 50
   teleporterAnimaux: 0
   centreZone: {fileID: 1530626014}
   afficherGizmos: 1
@@ -868,6 +857,71 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1754500170
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3259866370250450047, guid: 0ad6ffc1f1978b84bb1da0d3956e2dd6, type: 3}
+      propertyPath: prefabRenard
+      value: 
+      objectReference: {fileID: 6969874896333843480, guid: 0ad6ffc1f1978b84bb1da0d3956e2dd6, type: 3}
+    - target: {fileID: 6969874896333843480, guid: 0ad6ffc1f1978b84bb1da0d3956e2dd6, type: 3}
+      propertyPath: m_Name
+      value: Renard_test (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6969874896333843480, guid: 0ad6ffc1f1978b84bb1da0d3956e2dd6, type: 3}
+      propertyPath: m_TagString
+      value: Renard
+      objectReference: {fileID: 0}
+    - target: {fileID: 7423305677969940437, guid: 0ad6ffc1f1978b84bb1da0d3956e2dd6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -15.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7423305677969940437, guid: 0ad6ffc1f1978b84bb1da0d3956e2dd6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 7423305677969940437, guid: 0ad6ffc1f1978b84bb1da0d3956e2dd6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7423305677969940437, guid: 0ad6ffc1f1978b84bb1da0d3956e2dd6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7423305677969940437, guid: 0ad6ffc1f1978b84bb1da0d3956e2dd6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7423305677969940437, guid: 0ad6ffc1f1978b84bb1da0d3956e2dd6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7423305677969940437, guid: 0ad6ffc1f1978b84bb1da0d3956e2dd6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7423305677969940437, guid: 0ad6ffc1f1978b84bb1da0d3956e2dd6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7423305677969940437, guid: 0ad6ffc1f1978b84bb1da0d3956e2dd6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7423305677969940437, guid: 0ad6ffc1f1978b84bb1da0d3956e2dd6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0ad6ffc1f1978b84bb1da0d3956e2dd6, type: 3}
 --- !u!1 &2126662520
 GameObject:
   m_ObjectHideFlags: 0
@@ -934,7 +988,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 10e1bab25613d5b40adf3000f2fe671e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1119,6 +1173,7 @@ SceneRoots:
   - {fileID: 832575519}
   - {fileID: 8408532224245018008}
   - {fileID: 4481837150378295896}
+  - {fileID: 1754500170}
   - {fileID: 211986595}
   - {fileID: 2126662524}
   - {fileID: 508889184}

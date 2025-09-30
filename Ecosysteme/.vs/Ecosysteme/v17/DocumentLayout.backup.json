@@ -3,7 +3,11 @@
   "WorkspaceRootPath": "D:\\Projets Unity\\Projet_Unity\\Ecosysteme\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{26B414FF-7654-1639-DB47-5BE4B01957BA}|Assembly-CSharp.csproj|D:\\Projets Unity\\Projet_Unity\\Ecosysteme\\assets\\scripts\\herbe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{26B414FF-7654-1639-DB47-5BE4B01957BA}|Assembly-CSharp.csproj|d:\\projets unity\\projet_unity\\ecosysteme\\assets\\scripts\\barriereinvisible.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{26B414FF-7654-1639-DB47-5BE4B01957BA}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\barriereinvisible.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26B414FF-7654-1639-DB47-5BE4B01957BA}|Assembly-CSharp.csproj|d:\\projets unity\\projet_unity\\ecosysteme\\assets\\scripts\\herbe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{26B414FF-7654-1639-DB47-5BE4B01957BA}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\herbe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -34,11 +38,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "BarriereInvisible.cs",
+              "DocumentMoniker": "D:\\Projets Unity\\Projet_Unity\\Ecosysteme\\Assets\\Scripts\\BarriereInvisible.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\BarriereInvisible.cs",
+              "ToolTip": "D:\\Projets Unity\\Projet_Unity\\Ecosysteme\\Assets\\Scripts\\BarriereInvisible.cs",
+              "RelativeToolTip": "Assets\\Scripts\\BarriereInvisible.cs",
+              "ViewState": "AgIAAGgAAAAAAAAAAAAIwIIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-28T16:27:55.702Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "HerbeSpawner.cs",
               "DocumentMoniker": "D:\\Projets Unity\\Projet_Unity\\Ecosysteme\\Assets\\Scripts\\HerbeSpawner.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\HerbeSpawner.cs",
@@ -46,12 +63,11 @@
               "RelativeToolTip": "Assets\\Scripts\\HerbeSpawner.cs",
               "ViewState": "AgIAAHcAAAAAAAAAAAAmwJIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-27T14:41:52.895Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-27T14:41:52.895Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Herbe.cs",
               "DocumentMoniker": "D:\\Projets Unity\\Projet_Unity\\Ecosysteme\\Assets\\Scripts\\Herbe.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Herbe.cs",
@@ -64,7 +80,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "EcosystemManager.cs",
               "DocumentMoniker": "D:\\Projets Unity\\Projet_Unity\\Ecosysteme\\Assets\\Scripts\\EcosystemManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\EcosystemManager.cs",
@@ -76,7 +92,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Renard.cs",
               "DocumentMoniker": "D:\\Projets Unity\\Projet_Unity\\Ecosysteme\\Assets\\Scripts\\Renard.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Renard.cs",
@@ -88,7 +104,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Lapin.cs",
               "DocumentMoniker": "D:\\Projets Unity\\Projet_Unity\\Ecosysteme\\Assets\\Scripts\\Lapin.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Lapin.cs",
@@ -100,7 +116,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Animal.cs",
               "DocumentMoniker": "D:\\Projets Unity\\Projet_Unity\\Ecosysteme\\Assets\\Scripts\\Animal.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Animal.cs",
